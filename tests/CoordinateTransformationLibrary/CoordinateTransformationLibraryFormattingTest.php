@@ -21,8 +21,9 @@
 namespace Drola\Tests\CoordinateTransformationLibrary;
 
 use Drola\CoordinateTransformationLibrary\Format;
+use PHPUnit\Framework\TestCase;
 
-class CoordinateTransformationLibraryFormattingTest extends \PHPUnit_Framework_TestCase
+class CoordinateTransformationLibraryFormattingTest extends TestCase
 {
     public function getCases()
     {

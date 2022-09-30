@@ -20,15 +20,16 @@
 
 namespace Drola\Tests\CoordinateTransformationLibrary;
 
-use Drola\CoordinateTransformationLibrary\Position\RT90Position;
-use Drola\CoordinateTransformationLibrary\Projection\RT90Projection;
-use Drola\CoordinateTransformationLibrary\Position\WGS84Position;
-use Drola\CoordinateTransformationLibrary\Position\WGS84Format;
-use Drola\CoordinateTransformationLibrary\Position\SWEREF99Position;
-use Drola\CoordinateTransformationLibrary\Projection\SWEREFProjection;
 use Drola\CoordinateTransformationLibrary\ParseException;
+use Drola\CoordinateTransformationLibrary\Position\RT90Position;
+use Drola\CoordinateTransformationLibrary\Position\SWEREF99Position;
+use Drola\CoordinateTransformationLibrary\Position\WGS84Format;
+use Drola\CoordinateTransformationLibrary\Position\WGS84Position;
+use Drola\CoordinateTransformationLibrary\Projection\RT90Projection;
+use Drola\CoordinateTransformationLibrary\Projection\SWEREFProjection;
+use PHPUnit\Framework\TestCase;
 
-class CoordinateTransformationLibraryTest extends \PHPUnit_Framework_TestCase
+class CoordinateTransformationLibraryTest extends TestCase
 {
     public function testRT90ToWGS84()
     {
@@ -39,8 +40,8 @@ class CoordinateTransformationLibraryTest extends \PHPUnit_Framework_TestCase
         $latFromHitta = 59.3489;
         $lonFromHitta = 18.0473;
 
-        $lat = ((double) round($wgsPos->getLatitude() * 10000)) / 10000;
-        $lon = ((double) round($wgsPos->getLongitude() * 10000)) / 10000;
+        $lat = ((double)round($wgsPos->getLatitude() * 10000)) / 10000;
+        $lon = ((double)round($wgsPos->getLongitude() * 10000)) / 10000;
 
         $this->assertEquals($latFromHitta, $lat); //TODO: fix rounding according to extra parameter: 0.00001d
         $this->assertEquals($lonFromHitta, $lon);
@@ -71,8 +72,8 @@ class CoordinateTransformationLibraryTest extends \PHPUnit_Framework_TestCase
         $xPosFromLM = 6653174.343;
         $yPosFromLM = 1613318.742;
 
-        $lat = ((double) round($rtPos->getLatitude() * 1000) / 1000);
-        $lon = ((double) round($rtPos->getLongitude() * 1000) / 1000);
+        $lat = ((double)round($rtPos->getLatitude() * 1000) / 1000);
+        $lon = ((double)round($rtPos->getLongitude() * 1000) / 1000);
 
         $this->assertEquals($lat, $xPosFromLM); //fix accuracy: 0.0001d
         $this->assertEquals($lon, $yPosFromLM);
@@ -93,7 +94,7 @@ class CoordinateTransformationLibraryTest extends \PHPUnit_Framework_TestCase
         $yPosFromLM = 658185.201;
 
         $lat = ((double)round($rtPos->getLatitude() * 1000) / 1000);
-        $lon = ((double) round($rtPos->getLongitude() * 1000) / 1000);
+        $lon = ((double)round($rtPos->getLongitude() * 1000) / 1000);
         $this->assertEquals($lat, $xPosFromLM);
         $this->assertEquals($lon, $yPosFromLM);
 
@@ -131,14 +132,14 @@ class CoordinateTransformationLibraryTest extends \PHPUnit_Framework_TestCase
         } catch (ParseException $e) {
             $this->fail($e->getMessage());
         }
-        $lat = ((double) round($wgsPosDM->getLatitude() * 1000) / 1000);
-        $lon = ((double) round($wgsPosDM->getLongitude() * 1000) / 1000);
+        $lat = ((double)round($wgsPosDM->getLatitude() * 1000) / 1000);
+        $lon = ((double)round($wgsPosDM->getLongitude() * 1000) / 1000);
 
         $this->assertEquals(62.176, $lat);
         $this->assertEquals(15.903, $lon);
 
-        $lat_s = ((double) round($wgsPosDMs->getLatitude() * 1000) / 1000);
-        $lon_s = ((double) round($wgsPosDMs->getLongitude() * 1000) / 1000);
+        $lat_s = ((double)round($wgsPosDMs->getLatitude() * 1000) / 1000);
+        $lon_s = ((double)round($wgsPosDMs->getLongitude() * 1000) / 1000);
 
         $this->assertEquals(62.176, $lat_s);
         $this->assertEquals(15.903, $lon_s);
