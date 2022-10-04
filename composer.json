@@ -1,7 +1,7 @@
 {
     "name": "drola/coordinate-transformation-library",
     "description": "Transform coordinates between swedish RT90, SWEREF99 and WGS8",
-    "license": "CC BY-NC-SA 3.0",
+    "license": "CC-BY-NC-SA-3.0",
     "authors": [
         {
             "name": "Matjaz Drolc",
